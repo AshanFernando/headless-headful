@@ -49,5 +49,3 @@ This will output results to the `results/` directory:
 
 ---
 
-Based on ideas from [Playwright Browser Footprint](https://datawookie.dev/blog/2025/06/playwright-browser-footprint/?utm_source=chatgpt.com) # headless-headful
-# headless-headful
