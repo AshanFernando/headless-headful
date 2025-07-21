@@ -1,0 +1,3 @@
+# Ignore results directory
+results/
+node_modules/
