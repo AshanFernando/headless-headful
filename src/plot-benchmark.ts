@@ -24,6 +24,14 @@ async function createIndividualChart(data: BenchmarkResult[], title: string, dat
   const modes = data.map(d => d.mode);
   const colors = modes.map(getBarColor);
   
+  // Determine if we should begin at zero based on the chart type
+  const beginAtZero = dataKey !== 'memory'; // Only memory chart should allow negative values
+  
+  // Debug logging for memory chart
+  if (dataKey === 'memory') {
+    console.log('Memory chart data:', data.map(d => ({ mode: d.mode, memory: d.memory })));
+  }
+  
   return await chartJSNodeCanvas.renderToBuffer({
     type: 'bar',
     data: {
@@ -62,7 +70,7 @@ async function createIndividualChart(data: BenchmarkResult[], title: string, dat
           },
         },
         y: {
-          beginAtZero: true,
+          beginAtZero: beginAtZero,
           title: {
             display: true,
             text: yAxisLabel,
