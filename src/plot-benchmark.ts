@@ -25,7 +25,7 @@ async function createIndividualChart(data: BenchmarkResult[], title: string, dat
   const colors = modes.map(getBarColor);
   
   // Determine if we should begin at zero based on the chart type
-  const beginAtZero = dataKey !== 'memory'; // Only memory chart should allow negative values
+  const beginAtZero = true; // All charts should start from zero for proper comparison
   
   // Debug logging for memory chart
   if (dataKey === 'memory') {
